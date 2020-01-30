@@ -1,0 +1,36 @@
+<div class="new-role">
+  <div class="new-role-menubar">
+    <h3 class="mg-none">Create new role</h3>
+  </div>
+
+  <div class="new-role-details">
+    <div class="c-breadcrumb">
+      <a class="c-breadcrumb-btn" [ngClass]="{visited: visited.ROLE_DETAILS, selected: currentStep.ROLE_DETAILS}"><span>1. Role Details</span></a>
+      <a class="c-breadcrumb-btn" [ngClass]="{visited: visited.ALLOCATION, selected: currentStep.ALLOCATION}"><span>2. Allocation</span></a>
+      <a class="c-breadcrumb-btn" [ngClass]="{visited: visited.REVIEW, selected: currentStep.REVIEW}"><span>3. Review and Confirm</span></a>
+    </div>
+
+    <div class="mg-vt-lg sep-vt-primary"></div>
+
+    <pion-role-details *ngIf="currentStep.ROLE_DETAILS"></pion-role-details>
+    <pion-allocation *ngIf="currentStep.ALLOCATION"></pion-allocation>
+    <pion-review-confirm *ngIf="currentStep.REVIEW" (editStep)="edit($event)"></pion-review-confirm>
+
+    <div class="mg-vt-lg sep-vt-primary"></div>
+  </div>
+
+  <div class="new-role-footer">
+    <div class="left-section">
+      <button class="btn btn-border" [disabled]="currentStep.ROLE_DETAILS" (click)="back()">Back</button>
+      <div class="mg-hz-sm">&nbsp;</div>
+      <button class="btn btn-border" (click)="cancel()">Cancel</button>
+      <div class="mg-hz-sm">&nbsp;</div>
+      <button class="btn btn-border" [disabled]="!currentStep.REVIEW" (click)="saveRole()">Save and exit</button>
+      <div class="mg-hz-sm">&nbsp;</div>
+      <button class="btn btn-border">Copy role</button>
+    </div>
+    <div class="right-section">
+      <button class="btn btn-highlight" (click)="continue()">Continue</button>
+    </div>
+  </div>
+</div>

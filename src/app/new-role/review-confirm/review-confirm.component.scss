@@ -1,0 +1,33 @@
+@import 'abstracts/variables';
+@import 'themes/theme';
+
+.accordion {
+
+  &-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .heading-text{
+      flex: 1;
+      // border-right: 1px solid $color-dark-border;
+    }
+
+    &-right {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      font-size: 1.3em;
+      > i {
+        padding: rem(0 20px 0 20px);
+      }
+      .text-smaller{
+        font-size: rem(14px);
+      }
+    }
+  }
+
+  &-show-icon {
+    // font-size: 1.3em;
+    transition: transform 300ms linear;
+  }
+}

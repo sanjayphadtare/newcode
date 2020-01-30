@@ -1,0 +1,84 @@
+<div class="role-details">
+
+  <!--Workforce Planning Details-->
+  <accordion [isAnimated]="true">
+
+    <accordion-group [isOpen]="true" *ngIf="(roleDetails?.workforceDetails) as wd">
+      <div accordion-heading class="accordion-heading">
+        <h3 class='heading-text'>Workforce planning details</h3>
+        <div class="accordion-heading-right">
+          <div class="mg-hz-md sep-left">&nbsp;</div>
+          <div (click)="edit($event, 'ROLE_DETAILS')">
+            <i class="fas fa-pen"></i>
+            <span class="text-smaller">&nbsp;&nbsp;Edit</span>
+          </div>
+          <div class="mg-hz-md sep-left">&nbsp;</div>
+          <i class="fas fa-chevron-down accordion-show-icon"></i>
+        </div>
+      </div>
+      <div>
+        <div class="form-field">
+          <span class="form-field-label">Hire type<span class="field-required">*</span></span>
+          <span class="form-field-value">{{wd.hireType.label}}</span>
+        </div>
+        <div class="form-field">
+          <span class="form-field-label">Number of roles</span>
+          <span class="form-field-value">{{wd.numberOfRoles}}</span>
+        </div>
+        <div class="form-field">
+          <span class="form-field-label">Role action type<span class="field-required">*</span></span>
+          <span class="form-field-value">{{wd.roleActionType.label}}</span>
+        </div>
+        <div class="form-field">
+          <span class="form-field-label">Linked cTool ID</span>
+          <span class="form-field-value">{{wd.linkedCToolId}}</span>
+        </div>
+        <div class="form-field">
+          <span class="form-field-label">Employee class<span class="field-required">*</span></span>
+          <span class="form-field-value">{{wd.employeeClass.label}}</span>
+        </div>
+        <div class="form-field">
+          <span class="form-field-label">Role start date<span class="field-required">*</span></span>
+          <span class="form-field-value">{{wd.roleStartDate | date:'d MMM yyyy'}}</span>
+        </div>
+        <div class="form-field">
+          <span class="form-field-label">Role end date<span class="field-required">*</span></span>
+          <span class="form-field-value">{{wd.roleEndDate | date:'d MMM yyyy'}}</span>
+        </div>
+      </div>
+    </accordion-group>
+
+    <div class="mg-vt-lg sep-vt-primary"></div>
+
+    <accordion-group [isOpen]="true" *ngIf="allocation">
+      <div accordion-heading class="accordion-heading">
+        <h3 class='heading-text'>Allocation</h3>
+        <div class="accordion-heading-right">
+          <div class="mg-hz-md sep-left">&nbsp;</div>
+          <div (click)="edit($event, 'ALLOCATION')">
+            <i class="fas fa-pen"></i>
+            <span class="text-smaller">&nbsp;&nbsp;Edit</span>
+          </div>
+          <div class="mg-hz-md sep-left">&nbsp;</div>
+          <i class="fas fa-chevron-down accordion-show-icon"></i>
+        </div>
+      </div>
+      <div>
+        <div class="form-field">
+          <span class="form-field-label">Project Name</span>
+          <span class="form-field-value">{{allocation.projectName}}</span>
+        </div>
+        <div class="form-field">
+          <span class="form-field-label">Year</span>
+          <span class="form-field-value">{{allocation.year}}</span>
+        </div>
+        <div class="form-field">
+          <span class="form-field-label">Default Allocation</span>
+          <span class="form-field-value">{{allocation.defaultAllocation}}</span>
+        </div>
+      </div>
+    </accordion-group>
+
+  </accordion>
+
+</div>
